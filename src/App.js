@@ -174,7 +174,7 @@ function App() {
       labels.map(async label => {
         const descriptions = []
         for (let i = 1; i <= labels.length; i++) {
-          const img = await faceapi.fetchImage(`https://raw.githubusercontent.com/BorntoDev/FaceRegJS/master/labeled_images/${label}/${i}.jpg`)
+          const img = await faceapi.fetchImage(`https://raw.githubusercontent.com/minnywww/face_model/main/labeled_images/${label}/${i}.jpg`)
           const detections = await faceapi.detectSingleFace(img).withFaceLandmarks().withFaceDescriptor()
           descriptions.push(detections.descriptor)
         }
