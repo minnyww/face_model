@@ -169,16 +169,15 @@ function App() {
 
 
   function loadLabeledImages() {
-    const labels = ['Jisoo', 'Lisa', 'Rose', 'Jennie']
+    const labels = ['Lisa', 'Pang', 'Justin']
     return Promise.all(
       labels.map(async label => {
         const descriptions = []
-        for (let i = 1; i <= labels.length; i++) {
-          const img = await faceapi.fetchImage(`https://raw.githubusercontent.com/minnywww/face_model/main/labeled_images/${label}/${i}.jpg`)
+        for (let i = 1; i <= 1; i++) {
+          const img = await faceapi.fetchImage(`https://raw.githubusercontent.com/minnyww/face_model/main/labeled_images/${label}/${i}.jpg`)
           const detections = await faceapi.detectSingleFace(img).withFaceLandmarks().withFaceDescriptor()
           descriptions.push(detections.descriptor)
         }
-        console.log('descriptions : ', descriptions)
         return new faceapi.LabeledFaceDescriptors(label, descriptions)
       })
     )
